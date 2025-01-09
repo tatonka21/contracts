@@ -1,7 +1,7 @@
 import sys
-import random
 import FormulaSolidityPort
 import FormulaNativePython
+import secrets
 
 
 def formulaTest(supply, balance, weight, amount):
@@ -29,10 +29,10 @@ numOfFailures = 0
 
 
 for n in range(size):
-    supply = random.randrange(2, 10 ** 26)
-    balance = random.randrange(1, 10 ** 23)
-    weight = random.randrange(1, 1000000)
-    amount = random.randrange(1, supply)
+    supply = secrets.SystemRandom().randrange(2, 10 ** 26)
+    balance = secrets.SystemRandom().randrange(1, 10 ** 23)
+    weight = secrets.SystemRandom().randrange(1, 1000000)
+    amount = secrets.SystemRandom().randrange(1, supply)
     try:
         accuracy = formulaTest(supply, balance, weight, amount)
         worstAccuracy = min(worstAccuracy, accuracy)
