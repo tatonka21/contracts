@@ -1,7 +1,7 @@
 import sys
-import random
 import FormulaSolidityPort
 import FormulaNativePython
+import secrets
 
 
 def powerTest(baseN, baseD, expN, expD):
@@ -29,10 +29,10 @@ numOfFailures = 0
 
 
 for n in range(size):
-    baseN = random.randrange(2, 10**26)
-    baseD = random.randrange(1, baseN)
-    expN = random.randrange(1, 1000000)
-    expD = random.randrange(expN, 1000001)
+    baseN = secrets.SystemRandom().randrange(2, 10**26)
+    baseD = secrets.SystemRandom().randrange(1, baseN)
+    expN = secrets.SystemRandom().randrange(1, 1000000)
+    expD = secrets.SystemRandom().randrange(expN, 1000001)
     try:
         accuracy = powerTest(baseN, baseD, expN, expD)
         worstAccuracy = min(worstAccuracy, accuracy)
